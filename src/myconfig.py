@@ -7,12 +7,13 @@
 from decouple import config
 
 
-class Config():
+class Config(object):
     SECRET_KEY = config('SECRET_KEY')
 
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    SERVER_NAME = "localhost:2023"
 
 
 config = {
