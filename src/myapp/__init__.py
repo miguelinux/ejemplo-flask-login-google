@@ -6,19 +6,18 @@
 
 from flask import Flask
 
-# Routes
-#from .routes import AuthRoutes
-#from .routes import LanguageRoutes
+# Rutas
+from .rutas import raiz
+from .rutas import auth
 
 app = Flask(__name__)
-
 
 def init_app(config):
     # Configuration
     app.config.from_object(config)
 
     # Blueprints
-    #app.register_blueprint(AuthRoutes.main, url_prefix='/auth')
-    #app.register_blueprint(LanguageRoutes.main, url_prefix='/languages')
+    app.register_blueprint(raiz.main, url_prefix='/')
+    app.register_blueprint(auth.main, url_prefix='/auth')
 
     return app
