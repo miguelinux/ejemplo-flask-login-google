@@ -4,6 +4,9 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
+"""
+Este es el programa principal o punto de entrada de la aplicación.
+"""
 
 from myconfig import config
 from myapp import init_app

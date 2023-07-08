@@ -3,6 +3,9 @@
 # :indentSize=4:tabSize=8:noTabs=true:
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
+"""
+Programa de inicialización de la aplicación Flask.
+"""
 
 from flask import Flask
 
@@ -13,6 +16,9 @@ from .rutas import auth
 app = Flask(__name__)
 
 def init_app(config):
+    """
+    Inicializa la aplicación de Flask
+    """
     # Configuration
     app.config.from_object(config)
 
