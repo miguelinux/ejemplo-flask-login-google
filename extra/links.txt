@@ -1,1 +1,2 @@
 https://realpython.com/flask-google-login/
+https://realpython.com/token-based-authentication-with-flask/
