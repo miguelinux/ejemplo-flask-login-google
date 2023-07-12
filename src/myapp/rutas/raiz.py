@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from flask import Blueprint, request, redirect, render_template
+from flask import Blueprint, request, redirect, render_template, make_response
 from google.oauth2 import id_token
 from google.auth.transport import requests
 
@@ -46,10 +46,10 @@ def login():
             Family name: {family_name}
             """
 
-
         except ValueError:
             str_return='Value Error'
         return str_return
+
     elif request.method == 'GET':
         return render_template('login.html')
     else:
@@ -57,10 +57,27 @@ def login():
 
 @main.route('/test', methods=['GET', 'POST'])
 def test():
+    print(request.headers)
     if request.method == 'POST':
         print(request.form)
         return 'post'
     elif request.method == 'GET':
-        return render_template('test.html')
+        response = make_response(render_template('test.html'))
+        response.headers['Authorization'] = 'Bearer Miguel'
+        return response
+    else:
+        return 'Not a valid request method for this route'
+
+@main.route('/test2', methods=['GET', 'POST'])
+def test2():
+    print(request.headers)
+    print(request.cookies)
+    if request.method == 'POST':
+        print(request.form)
+        return 'post'
+    elif request.method == 'GET':
+        response = make_response(render_template('test.html'))
+        response.headers['Authorization'] = 'Bearer Miguel'
+        return response
     else:
         return 'Not a valid request method for this route'
