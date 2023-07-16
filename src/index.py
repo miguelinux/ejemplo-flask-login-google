@@ -8,11 +8,10 @@
 Este es el programa principal o punto de entrada de la aplicación.
 """
 
-from myconfig import config
+from myconfig import default_config
 from myapp import init_app
 
-configuration = config['development']
-app = init_app(configuration)
+app = init_app(default_config)
 
 if __name__ == '__main__':
     app.run()
